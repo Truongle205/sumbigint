@@ -7,14 +7,13 @@ using namespace std;
 class MyBigNumber {
     private:
     vector<string> history;
-public:
     string value;
-
+public:
     string sum(string a, string b) {
         string result;
         int carry = 0;
         int i = a.size() - 1, j = b.size() - 1;
-    for (; i >= 0 || j >= 0; i--, j--) {
+    for (; i >= 0 || j >= 0 || carry; i--, j--) {
         int sum = carry;
         if (i >= 0) sum += a[i] - '0';
         if (j >= 0) sum += b[j] - '0';
@@ -27,9 +26,9 @@ public:
     return this->value=result;
 }
 void printHistory() {
-    cout << "History: ";
+    cout << "";
     for (const auto& h : history) {
-        cout << h << endl;
+        cout << h ;
     }
     cout << endl;
 };
