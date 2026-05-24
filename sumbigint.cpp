@@ -4,13 +4,13 @@
 
 using namespace std;
 
-class BigInt {
+class MyBigNumber {
     private:
     vector<string> history;
 public:
     string value;
 
-    void sum(string a, string b) {
+    string sum(string a, string b) {
         string result;
         int carry = 0;
         int i = a.size() - 1, j = b.size() - 1;
@@ -23,8 +23,8 @@ public:
     }
     reverse(result.begin(), result.end());
     history.push_back(result);
-    value = result;
-    cout << result << endl;
+    //value = result;
+    return this->value=result;
 }
 void printHistory() {
     cout << "History: ";
@@ -35,7 +35,7 @@ void printHistory() {
 };
 };
 int main() {
-    BigInt temp;
+    MyBigNumber temp;
     string a, b;
     cin >> a >> b;
     temp.sum(a, b);
