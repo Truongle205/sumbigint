@@ -9,16 +9,16 @@ class MyBigNumber {
     vector<string> history;
     string value;
 public:
-    string sum(string a, string b) {
-        int count = (max(a.size(), b.size())) + 1;
-        string result(count, '0');
-        int carry = 0;
-        int temp = count;
-        int i = a.size() - 1, j = b.size() - 1;
-        for (; i >= 0 || j >= 0 || carry; i--, j--) {
+    string sum(string stn1, string stn2) {
+    int count = (max(stn1.size(), stn2.size())) + 1;
+    string result(count, '0');
+    int carry = 0;
+    int temp = count;
+    int i = stn1.size() - 1, j = stn2.size() - 1;
+    for (; i >= 0 || j >= 0 || carry; i--, j--) {
         int sum = carry;
-        if (i >= 0) sum += a[i] - '0';
-        if (j >= 0) sum += b[j] - '0';
+        if (i >= 0) sum += stn1[i] - '0';
+        if (j >= 0) sum += stn2[j] - '0';
         result[temp - 1] = (sum % 10) + '0';
         carry = sum / 10;
         temp--;
