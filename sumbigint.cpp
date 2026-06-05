@@ -10,17 +10,23 @@ class MyBigNumber {
     string value;
 public:
     string sum(string a, string b) {
-        string result;
+        int count = (max(a.size(), b.size())) + 1;
+        string result(count, '0');
         int carry = 0;
+        int temp = count;
         int i = a.size() - 1, j = b.size() - 1;
-    for (; i >= 0 || j >= 0 || carry; i--, j--) {
+        for (; i >= 0 || j >= 0 || carry; i--, j--) {
         int sum = carry;
         if (i >= 0) sum += a[i] - '0';
         if (j >= 0) sum += b[j] - '0';
-        result.push_back(sum % 10 + '0');
+        result[temp - 1] = (sum % 10) + '0';
         carry = sum / 10;
+        temp--;
     }
-    reverse(result.begin(), result.end());
+    if (result[0] == '0') {
+        result.erase(result.begin());
+    }
+    //reverse(result.begin(), result.end());
     history.push_back(result);
     //value = result;
     return this->value=result;
